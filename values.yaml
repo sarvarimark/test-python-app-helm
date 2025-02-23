@@ -86,20 +86,20 @@ resources: {}
   #   memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
-livenessProbe:
-  httpGet:
-    path: /user/
-    port: http
-    initialDelaySeconds: 20
-    periodSeconds: 30
-    timeoutSeconds: 25
-readinessProbe:
-  httpGet:
-    path: /user/
-    port: http
-    initialDelaySeconds: 20
-    periodSeconds: 30
-    timeoutSeconds: 25
+# livenessProbe:
+#   httpGet:
+#     path: /user/
+#     port: http
+#     initialDelaySeconds: 20
+#     periodSeconds: 30
+#     timeoutSeconds: 25
+# readinessProbe:
+#   httpGet:
+#     path: /user/
+#     port: http
+#     initialDelaySeconds: 20
+#     periodSeconds: 30
+#     timeoutSeconds: 25
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
@@ -142,18 +142,18 @@ mongodb:
   service:
     ports:
       mongodb: 27017
-  readinessProbe:
-    initialDelaySeconds: 20
-    periodSeconds: 30
-    timeoutSeconds: 25
-    successThreshold: 1
-    failureThreshold: 4
-  livenessProbe:
-    initialDelaySeconds: 60
-    periodSeconds: 30
-    timeoutSeconds: 25
-    successThreshold: 1
-    failureThreshold: 4
+  readinessProbe: {}
+  #   initialDelaySeconds: 20
+  #   periodSeconds: 30
+  #   timeoutSeconds: 25
+  #   successThreshold: 1
+  #   failureThreshold: 4
+  livenessProbe: {}
+  #   initialDelaySeconds: 60
+  #   periodSeconds: 30
+  #   timeoutSeconds: 25
+  #   successThreshold: 1
+  #   failureThreshold: 4
 
 app:
   mongodbUri: "mongodb://mongodb:27017"
