@@ -1,5 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
+env:
+  - name: MONGO_URI
+    value: "{{ .Values.app.mongodbUri }}"
 metadata:
   name: {{ include "test-python-app-helm.fullname" . }}
   labels:

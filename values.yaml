@@ -123,3 +123,15 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+mongodb:
+  name: mongodb
+  auth:
+    enabled: false
+  #persistence:
+  #  enabled: false
+  service:
+    ports:
+      mongodb: 27017
+app:
+  mongodbUri: "mongodb://mongodb:27017"
