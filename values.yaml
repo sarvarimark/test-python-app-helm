@@ -124,6 +124,11 @@ tolerations: []
 
 affinity: {}
 
+dependencies:
+  - name: mongodb
+    version: 10.19.0
+    repository: https://charts.bitnami.com/bitnami
+
 mongodb:
   name: mongodb
   auth:
@@ -133,5 +138,19 @@ mongodb:
   service:
     ports:
       mongodb: 27017
+  readinessProbe:
+    initialDelaySeconds: 20
+    periodSeconds: 15
+    timeoutSeconds: 10
+    successThreshold: 1
+    failureThreshold: 4
+  livenessProbe:
+    initialDelaySeconds: 60
+    periodSeconds: 15
+    timeoutSeconds: 10
+    successThreshold: 1
+    failureThreshold: 4
+
 app:
   mongodbUri: "mongodb://mongodb:27017"
+
