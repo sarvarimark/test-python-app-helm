@@ -142,18 +142,18 @@ mongodb:
   service:
     ports:
       mongodb: 27017
-  readinessProbe: {}
-  #   initialDelaySeconds: 20
-  #   periodSeconds: 30
-  #   timeoutSeconds: 25
-  #   successThreshold: 1
-  #   failureThreshold: 4
-  livenessProbe: {}
-  #   initialDelaySeconds: 60
-  #   periodSeconds: 30
-  #   timeoutSeconds: 25
-  #   successThreshold: 1
-  #   failureThreshold: 4
+  readinessProbe:
+     initialDelaySeconds: 10
+     periodSeconds: 10
+     timeoutSeconds: 8
+     successThreshold: 1
+     failureThreshold: 20
+  livenessProbe:
+     initialDelaySeconds: 10
+     periodSeconds: 10
+     timeoutSeconds: 8
+     successThreshold: 1
+     failureThreshold: 20
 
 app:
   mongodbUri: "mongodb://mongodb:27017"
