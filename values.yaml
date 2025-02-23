@@ -90,12 +90,16 @@ livenessProbe:
   httpGet:
     path: /user/
     port: http
-    initialDelaySeconds: 10
+    initialDelaySeconds: 20
+    periodSeconds: 30
+    timeoutSeconds: 25
 readinessProbe:
   httpGet:
     path: /user/
     port: http
-    initialDelaySeconds: 10
+    initialDelaySeconds: 20
+    periodSeconds: 30
+    timeoutSeconds: 25
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
@@ -140,14 +144,14 @@ mongodb:
       mongodb: 27017
   readinessProbe:
     initialDelaySeconds: 20
-    periodSeconds: 15
-    timeoutSeconds: 10
+    periodSeconds: 30
+    timeoutSeconds: 25
     successThreshold: 1
     failureThreshold: 4
   livenessProbe:
     initialDelaySeconds: 60
-    periodSeconds: 15
-    timeoutSeconds: 10
+    periodSeconds: 30
+    timeoutSeconds: 25
     successThreshold: 1
     failureThreshold: 4
 
