@@ -144,16 +144,16 @@ mongodb:
       mongodb: 27017
   readinessProbe:
      initialDelaySeconds: 10
-     periodSeconds: 10
-     timeoutSeconds: 8
+     periodSeconds: 35
+     timeoutSeconds: 30
      successThreshold: 1
-     failureThreshold: 20
+     failureThreshold: 2
   livenessProbe:
      initialDelaySeconds: 10
-     periodSeconds: 10
-     timeoutSeconds: 8
+     periodSeconds: 35
+     timeoutSeconds: 30
      successThreshold: 1
-     failureThreshold: 20
+     failureThreshold: 2
   tls:
     enabled: false
 
