@@ -158,5 +158,5 @@ mongodb:
     enabled: false
 
 app:
-  mongodbUri: "mongodb://mongodb:27017"
+  mongodbUri: "mongodb://your-app-mongodb.default.svc.cluster.local:27017"
 
