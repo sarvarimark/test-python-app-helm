@@ -1,8 +1,5 @@
 apiVersion: apps/v1
 kind: Deployment
-env:
-  - name: MONGO_URI
-    value: "{{ .Values.app.mongodbUri }}"
 metadata:
   name: {{ include "test-python-app-helm.fullname" . }}
   labels:
@@ -42,6 +39,9 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          env:
+            - name: MONGO_URI
+              value: "{{ .Values.app.mongodbUri }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
