@@ -154,6 +154,8 @@ mongodb:
      timeoutSeconds: 8
      successThreshold: 1
      failureThreshold: 20
+  tls:
+    enabled: false
 
 app:
   mongodbUri: "mongodb://mongodb:27017"
